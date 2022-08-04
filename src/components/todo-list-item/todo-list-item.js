@@ -4,7 +4,8 @@ import './todo-list-item.css';
 
 const TodoListItem = ({ label, important = false }) => {
   const style = {
-    color: important ? 'tomato' : 'black'
+    color: important ? 'tomato' : 'black',
+    fontWeight: important ? 'bold' : 'normal'
   };
 
   return (
@@ -27,7 +28,7 @@ const TodoListItem = ({ label, important = false }) => {
         type="button"
         className="btn btn-outline-danger btn-sm float-right"
       >
-        <i className="fa fa-trash" />
+        <i className="fa fa-trash-o" />
       </button>
     </span>
   );
