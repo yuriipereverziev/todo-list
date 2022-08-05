@@ -4,6 +4,9 @@ import SearchPanel from '../search-panel';
 import ItemStatusFilter from '../item-status-filter';
 import TodoList from '../todo-list';
 import './app.css';
+import ItemAddForm from '../item-add-form';
+
+let maxId = 100;
 
 export default class App extends Component {
   state = {
@@ -29,6 +32,29 @@ export default class App extends Component {
     });
   };
 
+  addItem = (text) => {
+    maxId += 1;
+
+    const newItem = {
+      label: text,
+      important: false,
+      id: maxId
+    };
+
+    this.setState(({ todoData }) => {
+      const newArr = [
+        ...todoData,
+        newItem
+      ];
+
+      console.log(newArr);
+
+      return {
+        todoData: newArr
+      };
+    });
+  };
+
   render() {
     const { todoData } = this.state;
     return (
@@ -40,6 +66,8 @@ export default class App extends Component {
         </div>
 
         <TodoList todos={todoData} onDeleted={this.deleteItem} />
+
+        <ItemAddForm onAdded={this.addItem} />
       </div>
     );
   }
