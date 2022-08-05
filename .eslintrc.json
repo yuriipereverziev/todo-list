@@ -16,6 +16,7 @@
                 "unnamedComponents": "arrow-function"
             }
         ],
+        "react/state-in-constructor": ["<enabled>", "<mode>"],
         "react/react-in-jsx-scope": 0,
         "react/jsx-filename-extension": 0,
         "arrow-body-style": 0,
