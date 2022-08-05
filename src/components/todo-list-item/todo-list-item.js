@@ -5,34 +5,40 @@ import './todo-list-item.css';
 export default class TodoListItem extends Component {
   state = {
     done: false,
+    important: false,
   };
 
   onLabelClick = () => {
     this.setState({
-        done: true,
-    })
+      done: true,
+    });
+  };
+
+  onMarkImportant = () => {
+    this.setState({
+      important: true,
+    });
   };
 
   render() {
-    const { label, important = false } = this.props;
-    const { done } = this.state;
+    const { label } = this.props;
+    const { done, important } = this.state;
 
     let classNames = 'todo-list-item';
-    if(done){
-        classNames += ' done';
+    if (done) {
+      classNames += ' done';
     }
 
-    const style = {
-      color: important ? 'tomato' : 'black',
-      fontWeight: important ? 'bold' : 'normal'
-    };
-    
+    if (important) {
+      classNames += ' important';
+    }
+
     return (
       <span className={classNames}>
+        {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-static-element-interactions */}
         <span
           onClick={this.onLabelClick}
           className="todo-list-item-label"
-          style={style}
         >
           {label}
         </span>
@@ -40,6 +46,7 @@ export default class TodoListItem extends Component {
         <button
           type="button"
           className="btn btn-outline-success btn-sm float-right"
+          onClick={this.onMarkImportant}
         >
           <i className="fa fa-exclamation" />
         </button>
@@ -57,5 +64,4 @@ export default class TodoListItem extends Component {
 
 TodoListItem.propTypes = {
   label: PropTypes.string.isRequired,
-  important: PropTypes.bool.isRequired,
 };
