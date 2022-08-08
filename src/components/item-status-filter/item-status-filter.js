@@ -1,34 +1,35 @@
 import React, { Component } from 'react';
 import './item-status-filter.css';
+import PropTypes from 'prop-types';
 
 export default class ItemStatusFilter extends Component {
-
-    onDone = () => {
-        console.log('done')
-    }
-
-    buttons = [
-        {name:'all', label: 'All'},
-        {name:'active', label: 'Active'},
-        {name:'done ', label: 'Done'}
-    ]
+  buttons = [
+    { name: 'all', label: 'All' },
+    { name: 'active', label: 'Active' },
+    { name: 'done', label: 'Done' }
+  ];
 
   render() {
-        const { filter, onFilterChange } = this.props;
+    const { filter, onFilterChange } = this.props;
 
-        const buttons = this.buttons.map(({ name,label }) => {
-            const isActive = filter === name;
-            const clazz = isActive ? 'btn-info' : 'btn-outline-secondary';
-            return (
-                <button type="button" className={`btn ${clazz}`} key={name} onClick={() => onFilterChange(name)}>
-                    {label}
-                </button>
-            )
-        })
+    const buttons = this.buttons.map(({ name, label }) => {
+      const isActive = filter === name;
+      const clazz = isActive ? 'btn-info' : 'btn-outline-secondary';
+      return (
+        <button type="button" className={`btn ${clazz}`} key={name} onClick={() => onFilterChange(name)}>
+          {label}
+        </button>
+      );
+    });
     return (
       <div className="btn-group">
-          {buttons}
+        {buttons}
       </div>
     );
   }
 }
+
+ItemStatusFilter.propTypes = {
+  filter: PropTypes.string.isRequired,
+  onFilterChange: PropTypes.func.isRequired,
+};

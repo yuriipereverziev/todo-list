@@ -15,23 +15,24 @@ export default class ItemAddForm extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
+    // eslint-disable-next-line react/destructuring-assignment
     this.props.onAdded(this.state.label);
-      this.setState({
-          label: ''
-      });
-      console.log('1')
+    this.setState({
+      label: ''
+    });
   };
 
   render() {
+    const { label } = this.state;
+
     return (
       <form className="item-add-form d-flex" onSubmit={this.onSubmit}>
-
         <input
           type="text"
           className="form-control"
           onChange={this.onLabelChange}
           placeholder="What needs to be done?"
-          value={this.state.label}
+          value={label}
         />
         <button
           className="btn btn-outline-secondary"
