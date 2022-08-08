@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/yuriipereverziev/todo-list/static/css/main.2fb53eba.css",
-    "main.js": "/yuriipereverziev/todo-list/static/js/main.20a5c060.js",
-    "index.html": "/yuriipereverziev/todo-list/index.html",
-    "main.2fb53eba.css.map": "/yuriipereverziev/todo-list/static/css/main.2fb53eba.css.map",
-    "main.20a5c060.js.map": "/yuriipereverziev/todo-list/static/js/main.20a5c060.js.map"
+    "main.css": "/todo-list/static/css/main.2fb53eba.css",
+    "main.js": "/todo-list/static/js/main.20a5c060.js",
+    "index.html": "/todo-list/index.html",
+    "main.2fb53eba.css.map": "/todo-list/static/css/main.2fb53eba.css.map",
+    "main.20a5c060.js.map": "/todo-list/static/js/main.20a5c060.js.map"
   },
   "entrypoints": [
     "static/css/main.2fb53eba.css",
